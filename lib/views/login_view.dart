@@ -1,3 +1,4 @@
+import 'package:fitness_app/widget/custom_column_login_widget.dart';
 import 'package:fitness_app/widget/custom_linear_gradient_widget.dart';
 import 'package:fitness_app/widget/custom_row_in_corner_widget.dart';
 import 'package:fitness_app/widget/custom_stack_widget.dart';
@@ -18,8 +19,9 @@ class LoginView extends StatelessWidget {
             ),
             CustomRowInCornerWidget(),
             CustomStackWidget(
-              widget: Column(
-                children: [],
+              widget: SizedBox(
+                width: 200,
+                child: CustomColumnLoginWidget(),
               ),
             ),
           ],
