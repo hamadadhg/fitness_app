@@ -1,3 +1,4 @@
+import 'package:fitness_app/widget/custom_linear_gradient_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -5,22 +6,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color(
-              0xff411371,
-            ),
-            Color(
-              0xffA73EE1,
-            ),
-          ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
-      ),
-      child: const Scaffold(
+    return const CustomLinearGradientWidget(
+      widget: Scaffold(
         backgroundColor: Colors.transparent,
       ),
     );
