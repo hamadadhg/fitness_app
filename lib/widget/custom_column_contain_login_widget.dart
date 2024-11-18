@@ -39,7 +39,7 @@ class CustomColumnContainLoginWidget extends StatelessWidget {
                     SignUpView.signUpViewId,
                   );
                 },
-                fontSize: 18,
+                fontSize: 19,
                 text: 'Sign Up',
                 color: kWhiteColor,
               ),
