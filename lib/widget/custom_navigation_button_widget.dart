@@ -19,7 +19,7 @@ class CustomNavigationButtonWidget extends StatelessWidget {
             0xffFFFFFF,
           ),
           borderRadius: BorderRadius.circular(
-            8,
+            12,
           ),
         ),
         child: const Center(

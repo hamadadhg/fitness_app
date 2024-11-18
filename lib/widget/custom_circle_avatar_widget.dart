@@ -15,14 +15,14 @@ class CustomCircleAvatarWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomTextWidget(
-            text: 'Your',
+            text: 'your',
             color: Color(
               0xff411270,
             ),
             fontSize: 100,
           ),
           CustomTextWidget(
-            text: 'Logo',
+            text: 'LOGO',
             color: Color(
               0xff411270,
             ),
