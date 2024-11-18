@@ -1,9 +1,7 @@
 import 'package:fitness_app/constant.dart';
-import 'package:fitness_app/widget/custom_contain_container_in_sign_up_widget.dart';
+import 'package:fitness_app/widget/custom_column_contain_sign_up_widget.dart';
+import 'package:fitness_app/widget/custom_icon_button_widget.dart';
 import 'package:fitness_app/widget/custom_linear_gradient_widget.dart';
-import 'package:fitness_app/widget/custom_row_in_corner_widget.dart';
-import 'package:fitness_app/widget/custom_stack_widget.dart';
-import 'package:fitness_app/widget/custom_text_button_widget.dart';
 import 'package:flutter/material.dart';
 
 class SignUpView extends StatelessWidget {
@@ -13,54 +11,14 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomLinearGradientWidget(
       widget: Scaffold(
+        backgroundColor: kTransparentColor,
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(
-                context,
-              );
-            },
-            icon: Icon(
-              Icons.arrow_back_ios,
-              color: kWhiteColor,
-            ),
-          ),
+          leading: const CustomIconButtonWidget(),
           backgroundColor: kTransparentColor,
         ),
-        backgroundColor: kTransparentColor,
-        body: Column(
-          children: [
-            const CustomRowInCornerWidget(),
-            Row(
-              children: [
-                const CustomStackWidget(
-                  widget: SizedBox(
-                    width: 210,
-                    child: CustomContainContainerInSignUpWidget(),
-                  ),
-                ),
-                Transform.translate(
-                  offset: const Offset(
-                    -30,
-                    -60,
-                  ),
-                  child: CustomTextButtonWidget(
-                    onPressed: () {
-                      Navigator.pop(
-                        context,
-                      );
-                    },
-                    fontSize: 23,
-                    text: 'Login',
-                    color: kWhiteColor,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+        body: const CustomColumnContainSignUpWidget(),
       ),
     );
   }

@@ -1,29 +1,25 @@
 import 'package:fitness_app/constant.dart';
-import 'package:fitness_app/views/sign_up_view.dart';
-import 'package:fitness_app/widget/custom_contain_container_in_login_widget.dart';
+import 'package:fitness_app/widget/custom_contain_container_in_sign_up_widget.dart';
 import 'package:fitness_app/widget/custom_login_with_social_account_widget.dart';
 import 'package:fitness_app/widget/custom_row_in_corner_widget.dart';
 import 'package:fitness_app/widget/custom_stack_widget.dart';
 import 'package:fitness_app/widget/custom_text_button_widget.dart';
 import 'package:flutter/material.dart';
 
-class CustomColumnContainLoginWidget extends StatelessWidget {
-  const CustomColumnContainLoginWidget({super.key});
+class CustomColumnContainSignUpWidget extends StatelessWidget {
+  const CustomColumnContainSignUpWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 50,
-        ),
         const CustomRowInCornerWidget(),
         Row(
           children: [
             const CustomStackWidget(
               widget: SizedBox(
                 width: 210,
-                child: CustomContainContainerInLoginWidget(),
+                child: CustomContainContainerInSignUpWidget(),
               ),
             ),
             Transform.translate(
@@ -33,18 +29,24 @@ class CustomColumnContainLoginWidget extends StatelessWidget {
               ),
               child: CustomTextButtonWidget(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(
-                    SignUpView.signUpViewId,
+                  Navigator.pop(
+                    context,
                   );
                 },
-                fontSize: 19,
-                text: 'Sign Up',
+                fontSize: 23,
+                text: 'Login',
                 color: kWhiteColor,
               ),
             ),
           ],
         ),
-        const CustomLoginWithSocialAccountWidget(),
+        const CustomLoginWithSocialAccountWidget(
+          firstHeight: 120,
+          secondHeight: 20,
+          firstWidth: 40,
+          thirdHeight: 25,
+          secondWidth: 10,
+        ),
       ],
     );
   }
