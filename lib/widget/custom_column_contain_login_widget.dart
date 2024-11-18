@@ -1,4 +1,5 @@
 import 'package:fitness_app/constant.dart';
+import 'package:fitness_app/views/sign_up_view.dart';
 import 'package:fitness_app/widget/custom_contain_container_in_login_widget.dart';
 import 'package:fitness_app/widget/custom_container_social_icon_widget.dart';
 import 'package:fitness_app/widget/custom_icon_widget.dart';
@@ -33,7 +34,11 @@ class CustomColumnContainLoginWidget extends StatelessWidget {
                 -60,
               ),
               child: CustomTextButtonWidget(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(
+                    SignUpView.signUpViewId,
+                  );
+                },
                 fontSize: 18,
                 text: 'Sign Up',
                 color: kWhiteColor,
