@@ -8,10 +8,10 @@ class CustomStackWidget extends StatelessWidget {
   final Widget widget;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 30,
-        right: 110,
+    return Transform.translate(
+      offset: const Offset(
+        -28,
+        50,
       ),
       child: Stack(
         alignment: Alignment.center,

@@ -8,7 +8,7 @@ class CustomRowInCornerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.only(
-        right: 20,
+        right: 40,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
