@@ -23,6 +23,7 @@ class CustomLinearGradientWidget extends StatelessWidget {
           end: Alignment.bottomCenter,
         ),
       ),
+      child: widget,
     );
   }
 }
