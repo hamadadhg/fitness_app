@@ -59,10 +59,13 @@ class CustomColumnContainLoginWidget extends StatelessWidget {
               height: 50,
               width: 50,
               borderRadius: 28,
-              widget: CustomIconWidget(
-                iconData: Icons.facebook,
-                color: kBlueColor,
-                size: 50,
+              widget: GestureDetector(
+                onTap: () {},
+                child: CustomIconWidget(
+                  iconData: Icons.facebook,
+                  color: kBlueColor,
+                  size: 50,
+                ),
               ),
             ),
             const SizedBox(
@@ -72,8 +75,11 @@ class CustomColumnContainLoginWidget extends StatelessWidget {
               height: 50,
               width: 45,
               borderRadius: 24,
-              widget: Image.network(
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png',
+              widget: GestureDetector(
+                onTap: () {},
+                child: Image.network(
+                  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png',
+                ),
               ),
             ),
           ],
@@ -81,28 +87,31 @@ class CustomColumnContainLoginWidget extends StatelessWidget {
         const SizedBox(
           height: 35,
         ),
-        CustomContainerSocialIconWidget(
-          height: 45,
-          width: 250,
-          borderRadius: 28,
-          widget: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomIconWidget(
-                iconData: Icons.apple,
-                color: kBlackColor,
-                size: 30,
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-              CustomTextWidget(
-                text: 'Sign in with Apple',
-                color: kBlackColor,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ],
+        GestureDetector(
+          onTap: () {},
+          child: CustomContainerSocialIconWidget(
+            height: 45,
+            width: 250,
+            borderRadius: 28,
+            widget: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomIconWidget(
+                  iconData: Icons.apple,
+                  color: kBlackColor,
+                  size: 30,
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                CustomTextWidget(
+                  text: 'Sign in with Apple',
+                  color: kBlackColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ],
+            ),
           ),
         ),
       ],
