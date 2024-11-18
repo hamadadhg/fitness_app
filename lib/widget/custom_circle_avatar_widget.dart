@@ -16,9 +16,17 @@ class CustomCircleAvatarWidget extends StatelessWidget {
         children: [
           CustomTextWidget(
             text: 'Your',
+            color: Color(
+              0xff411270,
+            ),
+            fontSize: 100,
           ),
           CustomTextWidget(
             text: 'Logo',
+            color: Color(
+              0xff411270,
+            ),
+            fontSize: 100,
           ),
         ],
       ),

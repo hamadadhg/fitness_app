@@ -13,10 +13,10 @@ class CustomLinearGradientWidget extends StatelessWidget {
         gradient: LinearGradient(
           colors: [
             Color(
-              0xff411371,
+              0xff320A5F,
             ),
             Color(
-              0xffA73EE1,
+              0xffAC41E8,
             ),
           ],
           begin: Alignment.topCenter,

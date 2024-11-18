@@ -4,17 +4,19 @@ class CustomTextWidget extends StatelessWidget {
   const CustomTextWidget({
     super.key,
     required this.text,
+    required this.color,
+    required this.fontSize,
   });
   final String text;
+  final Color color;
+  final double fontSize;
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: const TextStyle(
-        color: Color(
-          0xff411270,
-        ),
-        fontSize: 100,
+      style: TextStyle(
+        color: color,
+        fontSize: fontSize,
       ),
     );
   }
