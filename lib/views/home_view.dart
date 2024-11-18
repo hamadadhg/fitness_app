@@ -1,6 +1,5 @@
-import 'package:fitness_app/widget/custom_circle_avatar_widget.dart';
+import 'package:fitness_app/widget/custom_column_contain_home_view_widget.dart';
 import 'package:fitness_app/widget/custom_linear_gradient_widget.dart';
-import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -8,21 +7,10 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomLinearGradientWidget(
+    return const CustomLinearGradientWidget(
       widget: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const SizedBox(
-              height: 30,
-            ),
-            const CustomCircleAvatarWidget(),
-            CustomNavigationButtonWidget(
-              onTap: () {},
-            ),
-          ],
-        ),
+        body: CustomColumnContainHomeViewWidget(),
       ),
     );
   }
