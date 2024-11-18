@@ -1,3 +1,4 @@
+import 'package:fitness_app/constant.dart';
 import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_field_widget.dart';
@@ -14,16 +15,14 @@ class CustomContainContainerInLoginWidget extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        const Row(
+        Row(
           children: [
-            SizedBox(
+            const SizedBox(
               width: 50,
             ),
             CustomTextWidget(
               text: 'Login',
-              color: Color(
-                0xff411270,
-              ),
+              color: kDeepPurpleColor,
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
@@ -47,9 +46,7 @@ class CustomContainContainerInLoginWidget extends StatelessWidget {
             CustomTextButtonWidget(
               onPressed: () {},
               text: 'Forgot Password?',
-              color: const Color(
-                0xff9A9A9A,
-              ),
+              color: kGreyColor,
               fontSize: 13,
             ),
           ],
@@ -60,12 +57,8 @@ class CustomContainContainerInLoginWidget extends StatelessWidget {
               onTap: () {},
               text: 'Login',
               fontSize: 24,
-              colorToContainer: const Color(
-                0xff6E26A3,
-              ),
-              colorToText: const Color(
-                0xffFFFFFF,
-              ),
+              colorToContainer: kDeepPurpleColor,
+              colorToText: kWhiteColor,
               height: 45,
               width: 135,
             ),

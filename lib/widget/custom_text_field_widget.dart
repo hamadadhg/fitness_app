@@ -1,3 +1,4 @@
+import 'package:fitness_app/constant.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFieldWidget extends StatelessWidget {
@@ -13,10 +14,8 @@ class CustomTextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      style: const TextStyle(
-        color: Color(
-          0xff9A9A9A,
-        ),
+      style: TextStyle(
+        color: kGreyColor,
       ),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.fromLTRB(
@@ -26,10 +25,8 @@ class CustomTextFieldWidget extends StatelessWidget {
           10,
         ),
         hintText: hintText,
-        hintStyle: const TextStyle(
-          color: Color(
-            0xff9A9A9A,
-          ),
+        hintStyle: TextStyle(
+          color: kGreyColor,
           fontSize: 13,
         ),
         prefixIcon: Icon(
@@ -42,9 +39,7 @@ class CustomTextFieldWidget extends StatelessWidget {
         suffixIcon: Icon(
           suffixIcon,
           size: 22,
-          color: const Color(
-            0xff9A9A9A,
-          ),
+          color: kGreyColor,
         ),
       ),
     );

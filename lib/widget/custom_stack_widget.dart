@@ -1,3 +1,4 @@
+import 'package:fitness_app/constant.dart';
 import 'package:flutter/material.dart';
 
 class CustomStackWidget extends StatelessWidget {
@@ -22,9 +23,7 @@ class CustomStackWidget extends StatelessWidget {
               height: 300,
               width: 300,
               decoration: BoxDecoration(
-                color: const Color(
-                  0xffFFFFFF,
-                ),
+                color: kWhiteColor,
                 borderRadius: BorderRadius.circular(
                   24,
                 ),

@@ -1,3 +1,4 @@
+import 'package:fitness_app/constant.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainerSocialIconWidget extends StatelessWidget {
@@ -18,9 +19,7 @@ class CustomContainerSocialIconWidget extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        color: const Color(
-          0xffFFFFFF,
-        ),
+        color: kWhiteColor,
         borderRadius: BorderRadius.circular(
           borderRadius,
         ),

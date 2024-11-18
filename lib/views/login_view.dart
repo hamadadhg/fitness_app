@@ -1,5 +1,7 @@
+import 'package:fitness_app/constant.dart';
 import 'package:fitness_app/widget/custom_contain_container_in_login_widget.dart';
 import 'package:fitness_app/widget/custom_container_social_icon_widget.dart';
+import 'package:fitness_app/widget/custom_icon_widget.dart';
 import 'package:fitness_app/widget/custom_linear_gradient_widget.dart';
 import 'package:fitness_app/widget/custom_row_in_corner_widget.dart';
 import 'package:fitness_app/widget/custom_stack_widget.dart';
@@ -14,7 +16,8 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomLinearGradientWidget(
       widget: Scaffold(
-        backgroundColor: Colors.transparent,
+        resizeToAvoidBottomInset: false,
+        backgroundColor: kTransparentColor,
         body: Column(
           children: [
             const SizedBox(
@@ -38,9 +41,7 @@ class LoginView extends StatelessWidget {
                     onPressed: () {},
                     fontSize: 18,
                     text: 'Sign Up',
-                    color: const Color(
-                      0xffFFFFFF,
-                    ),
+                    color: kWhiteColor,
                   ),
                 ),
               ],
@@ -48,11 +49,9 @@ class LoginView extends StatelessWidget {
             const SizedBox(
               height: 130,
             ),
-            const CustomTextWidget(
+            CustomTextWidget(
               text: 'Login With Social Account?',
-              color: Color(
-                0xffFFFFFF,
-              ),
+              color: kWhiteColor,
               fontSize: 18,
             ),
             const SizedBox(
@@ -61,23 +60,18 @@ class LoginView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(
-                      0xffFFFFFF,
-                    ),
-                    borderRadius: BorderRadius.circular(
-                      28,
-                    ),
-                  ),
-                  child: Icon(
-                    Icons.facebook,
-                    color: Colors.blue,
+                CustomContainerSocialIconWidget(
+                  height: 50,
+                  width: 50,
+                  borderRadius: 28,
+                  widget: CustomIconWidget(
+                    iconData: Icons.facebook,
+                    color: kBlueColor,
                     size: 50,
                   ),
                 ),
                 const SizedBox(
-                  width: 35,
+                  width: 50,
                 ),
                 CustomContainerSocialIconWidget(
                   height: 50,
@@ -89,34 +83,27 @@ class LoginView extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 35,
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color(
-                  0xffFFFFFF,
-                ),
-                borderRadius: BorderRadius.circular(
-                  28,
-                ),
-              ),
+            CustomContainerSocialIconWidget(
               height: 45,
               width: 250,
-              child: Row(
+              borderRadius: 28,
+              widget: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.apple,
-                    color: Colors.black,
+                  CustomIconWidget(
+                    iconData: Icons.apple,
+                    color: kBlackColor,
                     size: 30,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   CustomTextWidget(
                     text: 'Sign in with Apple',
-                    color: Colors.black,
+                    color: kBlackColor,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
