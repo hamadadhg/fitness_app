@@ -4,8 +4,8 @@ import 'package:fitness_app/widget/custom_text_field_widget.dart';
 import 'package:fitness_app/widget/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 
-class CustomColumnLoginWidget extends StatelessWidget {
-  const CustomColumnLoginWidget({super.key});
+class CustomContainContainerInLoginWidget extends StatelessWidget {
+  const CustomContainContainerInLoginWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

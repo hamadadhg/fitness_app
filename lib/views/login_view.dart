@@ -1,4 +1,5 @@
-import 'package:fitness_app/widget/custom_column_login_widget.dart';
+import 'package:fitness_app/widget/custom_contain_container_in_login_widget.dart';
+import 'package:fitness_app/widget/custom_container_social_icon_widget.dart';
 import 'package:fitness_app/widget/custom_linear_gradient_widget.dart';
 import 'package:fitness_app/widget/custom_row_in_corner_widget.dart';
 import 'package:fitness_app/widget/custom_stack_widget.dart';
@@ -25,7 +26,7 @@ class LoginView extends StatelessWidget {
                 const CustomStackWidget(
                   widget: SizedBox(
                     width: 210,
-                    child: CustomColumnLoginWidget(),
+                    child: CustomContainContainerInLoginWidget(),
                   ),
                 ),
                 Transform.translate(
@@ -54,7 +55,7 @@ class LoginView extends StatelessWidget {
               ),
               fontSize: 18,
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Row(
@@ -75,21 +76,14 @@ class LoginView extends StatelessWidget {
                     size: 50,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 35,
                 ),
-                Container(
+                CustomContainerSocialIconWidget(
                   height: 50,
                   width: 45,
-                  decoration: BoxDecoration(
-                    color: const Color(
-                      0xffFFFFFF,
-                    ),
-                    borderRadius: BorderRadius.circular(
-                      24,
-                    ),
-                  ),
-                  child: Image.network(
+                  borderRadius: 24,
+                  widget: Image.network(
                     'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png',
                   ),
                 ),
