@@ -16,6 +16,16 @@ class CustomColumnContainHomeViewWidget extends StatelessWidget {
         ),
         const CustomCircleAvatarWidget(),
         CustomNavigationButtonWidget(
+          height: 55,
+          width: 220,
+          fontSize: 27,
+          colorToContainer: const Color(
+            0xffFFFFFF,
+          ),
+          text: 'Get Started',
+          colorToText: const Color(
+            0xff9A9A9A,
+          ),
           onTap: () {
             Navigator.of(context).pushNamed(
               LoginView.loginViewId,

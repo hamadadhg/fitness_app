@@ -20,7 +20,7 @@ class LoginView extends StatelessWidget {
             CustomRowInCornerWidget(),
             CustomStackWidget(
               widget: SizedBox(
-                width: 200,
+                width: 210,
                 child: CustomColumnLoginWidget(),
               ),
             ),
