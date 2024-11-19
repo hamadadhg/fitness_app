@@ -12,7 +12,7 @@ class CustomColumnContainInOTPWidget extends StatelessWidget {
       children: [
         CustomRowInCornerWidget(),
         CustomStackWidget(
-          horizontalOffset: -90,
+          horizontalOffset: -75,
           widget: CustomContainContainerInOTPWidget(),
           heightToContainer: 300,
           widthToContainer: 300,
