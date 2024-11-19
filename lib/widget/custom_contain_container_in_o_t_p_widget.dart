@@ -1,4 +1,6 @@
 import 'package:fitness_app/constant.dart';
+import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
+import 'package:fitness_app/widget/custom_text_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_fields_in_row_widget.dart';
 import 'package:fitness_app/widget/custom_text_widget.dart';
 import 'package:flutter/material.dart';
@@ -10,11 +12,20 @@ class CustomContainContainerInOTPWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomTextWidget(
-          text: 'Enter OTP',
-          color: kDeepPurpleColor,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
+        const SizedBox(
+          height: 15,
+        ),
+        Transform.translate(
+          offset: const Offset(
+            -20,
+            0,
+          ),
+          child: CustomTextWidget(
+            text: 'Enter OTP',
+            color: kDeepPurpleColor,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         const SizedBox(
           height: 20,
@@ -39,6 +50,34 @@ class CustomContainContainerInOTPWidget extends StatelessWidget {
           ],
         ),
         const CustomTextFieldsInRow(),
+        const SizedBox(
+          height: 10,
+        ),
+        Transform.translate(
+          offset: const Offset(
+            -50,
+            0,
+          ),
+          child: CustomTextButtonWidget(
+            text: 'Resend OTP',
+            color: kDeepPurpleColor,
+            onPressed: () {},
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        CustomNavigationButtonWidget(
+          onTap: () {},
+          height: 45,
+          width: 130,
+          colorToContainer: kDeepPurpleColor,
+          colorToText: kWhiteColor,
+          text: 'Next',
+          fontSize: 21,
+        ),
       ],
     );
   }

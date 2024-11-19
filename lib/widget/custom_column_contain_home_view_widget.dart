@@ -23,7 +23,11 @@ class CustomColumnContainHomeViewWidget extends StatelessWidget {
           colorToContainer: kWhiteColor,
           text: 'Get Started',
           colorToText: kGreyColor,
-          wordToNavigationOnThisView: LoginView.loginViewId,
+          onTap: () {
+            Navigator.of(context).pushNamed(
+              LoginView.loginViewId,
+            );
+          },
         ),
       ],
     );

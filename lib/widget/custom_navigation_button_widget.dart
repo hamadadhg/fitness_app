@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CustomNavigationButtonWidget extends StatelessWidget {
   const CustomNavigationButtonWidget({
     super.key,
-    required this.wordToNavigationOnThisView,
+    required this.onTap,
     required this.height,
     required this.width,
     required this.colorToContainer,
@@ -12,7 +12,7 @@ class CustomNavigationButtonWidget extends StatelessWidget {
     required this.text,
     required this.fontSize,
   });
-  final String wordToNavigationOnThisView;
+  final void Function()? onTap;
   final double height;
   final double width;
   final Color colorToContainer;
@@ -22,11 +22,7 @@ class CustomNavigationButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context).pushNamed(
-          wordToNavigationOnThisView,
-        );
-      },
+      onTap: onTap,
       child: Container(
         height: height,
         width: width,

@@ -48,7 +48,11 @@ class CustomContainContainerInSignUpWidget extends StatelessWidget {
           height: 21,
         ),
         CustomNavigationButtonWidget(
-          wordToNavigationOnThisView: OTPView.otpViewId,
+          onTap: () {
+            Navigator.of(context).pushNamed(
+              OTPView.otpViewId,
+            );
+          },
           height: 40,
           width: 130,
           colorToContainer: kDeepPurpleColor,

@@ -56,7 +56,11 @@ class CustomContainContainerInLoginWidget extends StatelessWidget {
           height: 25,
         ),
         CustomNavigationButtonWidget(
-          wordToNavigationOnThisView: OTPView.otpViewId,
+          onTap: () {
+            Navigator.of(context).pushNamed(
+              OTPView.otpViewId,
+            );
+          },
           text: 'Login',
           fontSize: 21,
           colorToContainer: kDeepPurpleColor,

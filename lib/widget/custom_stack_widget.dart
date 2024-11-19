@@ -7,16 +7,18 @@ class CustomStackWidget extends StatelessWidget {
     required this.widget,
     required this.heightToContainer,
     required this.widthToContainer,
+    this.horizontalOffset = -28,
   });
   final Widget widget;
   final double heightToContainer;
   final double widthToContainer;
+  final double horizontalOffset;
 
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
-      offset: const Offset(
-        -28,
+      offset: Offset(
+        horizontalOffset,
         50,
       ),
       child: Stack(
