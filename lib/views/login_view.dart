@@ -1,5 +1,6 @@
 import 'package:fitness_app/constant.dart';
 import 'package:fitness_app/widget/custom_column_contain_login_widget.dart';
+import 'package:fitness_app/widget/custom_icon_button_widget.dart';
 import 'package:fitness_app/widget/custom_linear_gradient_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,17 @@ class LoginView extends StatelessWidget {
       widget: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: kTransparentColor,
-        body: const CustomColumnContainLoginWidget(),
+        appBar: AppBar(
+          backgroundColor: kTransparentColor,
+          leading: const CustomIconButtonWidget(),
+        ),
+        body: Transform.translate(
+          offset: const Offset(
+            0,
+            -37,
+          ),
+          child: const CustomColumnContainLoginWidget(),
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:fitness_app/constant.dart';
+import 'package:fitness_app/views/o_t_p_view.dart';
 import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_field_widget.dart';
@@ -54,7 +55,11 @@ class CustomContainContainerInLoginWidget extends StatelessWidget {
         Row(
           children: [
             CustomNavigationButtonWidget(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed(
+                  OTPView.otpViewId,
+                );
+              },
               text: 'Login',
               fontSize: 21,
               colorToContainer: kDeepPurpleColor,

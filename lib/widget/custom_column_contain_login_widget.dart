@@ -14,9 +14,6 @@ class CustomColumnContainLoginWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 50,
-        ),
         const CustomRowInCornerWidget(),
         Row(
           children: [

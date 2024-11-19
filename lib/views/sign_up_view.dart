@@ -14,11 +14,16 @@ class SignUpView extends StatelessWidget {
         backgroundColor: kTransparentColor,
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          automaticallyImplyLeading: false,
           leading: const CustomIconButtonWidget(),
           backgroundColor: kTransparentColor,
         ),
-        body: const CustomColumnContainSignUpWidget(),
+        body: Transform.translate(
+          offset: const Offset(
+            0,
+            -37,
+          ),
+          child: const CustomColumnContainSignUpWidget(),
+        ),
       ),
     );
   }

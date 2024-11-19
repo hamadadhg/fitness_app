@@ -1,4 +1,5 @@
 import 'package:fitness_app/constant.dart';
+import 'package:fitness_app/views/o_t_p_view.dart';
 import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_field_widget.dart';
 import 'package:fitness_app/widget/custom_text_widget.dart';
@@ -47,7 +48,11 @@ class CustomContainContainerInSignUpWidget extends StatelessWidget {
           height: 21,
         ),
         CustomNavigationButtonWidget(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).pushNamed(
+              OTPView.otpViewId,
+            );
+          },
           height: 40,
           width: 130,
           colorToContainer: kDeepPurpleColor,
