@@ -11,6 +11,7 @@ class CustomStackWidget extends StatelessWidget {
   final Widget widget;
   final double heightToContainer;
   final double widthToContainer;
+
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
