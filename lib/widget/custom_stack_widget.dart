@@ -5,8 +5,12 @@ class CustomStackWidget extends StatelessWidget {
   const CustomStackWidget({
     super.key,
     required this.widget,
+    required this.heightToContainer,
+    required this.widthToContainer,
   });
   final Widget widget;
+  final double heightToContainer;
+  final double widthToContainer;
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
@@ -20,8 +24,8 @@ class CustomStackWidget extends StatelessWidget {
           Transform.rotate(
             angle: 0.785398,
             child: Container(
-              height: 300,
-              width: 300,
+              height: heightToContainer,
+              width: widthToContainer,
               decoration: BoxDecoration(
                 color: kWhiteColor,
                 borderRadius: BorderRadius.circular(

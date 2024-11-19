@@ -18,6 +18,8 @@ class CustomColumnContainLoginWidget extends StatelessWidget {
         Row(
           children: [
             const CustomStackWidget(
+              heightToContainer: 300,
+              widthToContainer: 300,
               widget: SizedBox(
                 width: 210,
                 child: CustomContainContainerInLoginWidget(),
@@ -25,7 +27,7 @@ class CustomColumnContainLoginWidget extends StatelessWidget {
             ),
             Transform.translate(
               offset: const Offset(
-                -30,
+                -40,
                 -60,
               ),
               child: CustomTextButtonWidget(

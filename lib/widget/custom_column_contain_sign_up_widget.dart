@@ -17,6 +17,8 @@ class CustomColumnContainSignUpWidget extends StatelessWidget {
         Row(
           children: [
             const CustomStackWidget(
+              heightToContainer: 324,
+              widthToContainer: 324,
               widget: SizedBox(
                 width: 210,
                 child: CustomContainContainerInSignUpWidget(),

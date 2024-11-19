@@ -52,22 +52,17 @@ class CustomContainContainerInLoginWidget extends StatelessWidget {
             ),
           ],
         ),
-        Row(
-          children: [
-            CustomNavigationButtonWidget(
-              onTap: () {
-                Navigator.of(context).pushNamed(
-                  OTPView.otpViewId,
-                );
-              },
-              text: 'Login',
-              fontSize: 21,
-              colorToContainer: kDeepPurpleColor,
-              colorToText: kWhiteColor,
-              height: 40,
-              width: 130,
-            ),
-          ],
+        const SizedBox(
+          height: 25,
+        ),
+        CustomNavigationButtonWidget(
+          wordToNavigationOnThisView: OTPView.otpViewId,
+          text: 'Login',
+          fontSize: 21,
+          colorToContainer: kDeepPurpleColor,
+          colorToText: kWhiteColor,
+          height: 40,
+          width: 130,
         ),
       ],
     );
