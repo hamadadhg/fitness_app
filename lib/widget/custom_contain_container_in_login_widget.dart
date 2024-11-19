@@ -1,4 +1,5 @@
 import 'package:fitness_app/constant.dart';
+import 'package:fitness_app/views/forget_password_view.dart';
 import 'package:fitness_app/views/o_t_p_view.dart';
 import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_button_widget.dart';
@@ -45,8 +46,12 @@ class CustomContainContainerInLoginWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             CustomTextButtonWidget(
-              onPressed: () {},
-              text: 'Forgot Password?',
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  ForgetPasswordView.forgetPasswordViewId,
+                );
+              },
+              text: 'Forget Password?',
               color: kGreyColor,
               fontSize: 13,
             ),
