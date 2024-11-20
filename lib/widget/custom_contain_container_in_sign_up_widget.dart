@@ -35,6 +35,7 @@ class _CustomContainContainerInSignUpWidgetState
           ),
           CustomTextFieldWidget(
             hintText: 'Email',
+            keyboardType: TextInputType.emailAddress,
             prefixIcon: Icons.email,
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -47,6 +48,7 @@ class _CustomContainContainerInSignUpWidgetState
           ),
           CustomTextFieldWidget(
             hintText: 'Phone',
+            keyboardType: TextInputType.phone,
             prefixIcon: Icons.phone,
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -57,6 +59,7 @@ class _CustomContainContainerInSignUpWidgetState
           ),
           CustomTextFieldWidget(
             hintText: 'Password',
+            keyboardType: TextInputType.visiblePassword,
             prefixIcon: Icons.lock,
             suffixIcon: Icons.visibility,
             validator: (value) {

@@ -64,6 +64,7 @@ class _CustomContainContainerInOTPWidgetState
               SizedBox(
                 width: 45,
                 child: CustomTextFieldWidget(
+                  keyboardType: TextInputType.phone,
                   textAlign: TextAlign.center,
                   fontSize: 16,
                   onChanged: (value) {
@@ -85,6 +86,7 @@ class _CustomContainContainerInOTPWidgetState
               SizedBox(
                 width: 45,
                 child: CustomTextFieldWidget(
+                  keyboardType: TextInputType.phone,
                   textAlign: TextAlign.center,
                   fontSize: 16,
                   onChanged: (value) {
@@ -106,6 +108,7 @@ class _CustomContainContainerInOTPWidgetState
               SizedBox(
                 width: 45,
                 child: CustomTextFieldWidget(
+                  keyboardType: TextInputType.phone,
                   textAlign: TextAlign.center,
                   fontSize: 16,
                   onChanged: (value) {
@@ -127,6 +130,7 @@ class _CustomContainContainerInOTPWidgetState
               SizedBox(
                 width: 45,
                 child: CustomTextFieldWidget(
+                  keyboardType: TextInputType.phone,
                   textAlign: TextAlign.center,
                   fontSize: 16,
                   onChanged: (value) {
@@ -169,7 +173,7 @@ class _CustomContainContainerInOTPWidgetState
             if (formKey.currentState!.validate()) {
               messageToUserHelper(
                 context: context,
-                text: 'Right OTP',
+                text: 'Correct OTP',
               );
             } else {
               autovalidateMode = AutovalidateMode.always;

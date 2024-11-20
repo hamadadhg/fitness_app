@@ -37,6 +37,7 @@ class _CustomContainContainerInLoginWidgetState
           ),
           CustomTextFieldWidget(
             hintText: 'Email',
+            keyboardType: TextInputType.emailAddress,
             prefixIcon: Icons.email,
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -49,6 +50,7 @@ class _CustomContainContainerInLoginWidgetState
           ),
           CustomTextFieldWidget(
             hintText: 'Password',
+            keyboardType: TextInputType.visiblePassword,
             prefixIcon: Icons.lock,
             suffixIcon: Icons.visibility,
             validator: (value) {

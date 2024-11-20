@@ -11,6 +11,7 @@ class CustomTextFieldWidget extends StatelessWidget {
     this.onChanged,
     this.fontSize = 16,
     required this.validator,
+    required this.keyboardType,
   });
   final String hintText;
   final IconData? prefixIcon;
@@ -19,9 +20,11 @@ class CustomTextFieldWidget extends StatelessWidget {
   final void Function(String)? onChanged;
   final String? Function(String?)? validator;
   final double fontSize;
+  final TextInputType keyboardType;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboardType,
       validator: validator,
       textAlign: textAlign,
       onChanged: onChanged,
