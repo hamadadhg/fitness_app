@@ -14,34 +14,30 @@ class CustomColumnContainLoginWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const CustomRowInCornerWidget(),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const CustomStackWidget(
-              heightToContainer: 300,
-              widthToContainer: 300,
-              widget: SizedBox(
-                width: 210,
-                child: CustomContainContainerInLoginWidget(),
-              ),
+            CustomTextButtonWidget(
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  SignUpView.signUpViewId,
+                );
+              },
+              fontSize: 17,
+              text: 'Or Sign Up',
+              color: kWhiteColor,
             ),
-            Transform.translate(
-              offset: const Offset(
-                -40,
-                -60,
-              ),
-              child: CustomTextButtonWidget(
-                onPressed: () {
-                  Navigator.of(context).pushNamed(
-                    SignUpView.signUpViewId,
-                  );
-                },
-                fontSize: 19,
-                text: 'Sign Up',
-                color: kWhiteColor,
-              ),
-            ),
+            const CustomRowInCornerWidget(),
           ],
+        ),
+        const CustomStackWidget(
+          heightToContainer: 335,
+          widthToContainer: 335,
+          horizontalOffset: -15,
+          widget: SizedBox(
+            width: 260,
+            child: CustomContainContainerInLoginWidget(),
+          ),
         ),
         const CustomLoginWithSocialAccountWidget(),
       ],

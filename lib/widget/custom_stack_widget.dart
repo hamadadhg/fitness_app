@@ -32,7 +32,7 @@ class CustomStackWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 color: kWhiteColor,
                 borderRadius: BorderRadius.circular(
-                  24,
+                  30,
                 ),
               ),
             ),

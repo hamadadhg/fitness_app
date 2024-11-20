@@ -9,7 +9,7 @@ class CustomCircleAvatarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       backgroundColor: kWhiteColor,
-      radius: 200,
+      radius: 210,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

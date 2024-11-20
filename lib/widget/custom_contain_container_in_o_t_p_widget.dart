@@ -1,20 +1,27 @@
 import 'package:fitness_app/constant.dart';
+import 'package:fitness_app/helper/message_to_user_helper.dart';
 import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_button_widget.dart';
-import 'package:fitness_app/widget/custom_text_fields_in_row_widget.dart';
+import 'package:fitness_app/widget/custom_text_form_field_widget.dart';
 import 'package:fitness_app/widget/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 
-class CustomContainContainerInOTPWidget extends StatelessWidget {
+class CustomContainContainerInOTPWidget extends StatefulWidget {
   const CustomContainContainerInOTPWidget({super.key});
 
+  @override
+  State<CustomContainContainerInOTPWidget> createState() =>
+      _CustomContainContainerInOTPWidgetState();
+}
+
+class _CustomContainContainerInOTPWidgetState
+    extends State<CustomContainContainerInOTPWidget> {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 15,
-        ),
         Transform.translate(
           offset: const Offset(
             -20,
@@ -49,7 +56,95 @@ class CustomContainContainerInOTPWidget extends StatelessWidget {
             ),
           ],
         ),
-        const CustomTextFieldsInRow(),
+        Form(
+          key: formKey,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(
+                width: 45,
+                child: CustomTextFieldWidget(
+                  textAlign: TextAlign.center,
+                  fontSize: 16,
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'This';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              SizedBox(
+                width: 45,
+                child: CustomTextFieldWidget(
+                  textAlign: TextAlign.center,
+                  fontSize: 16,
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Field';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              SizedBox(
+                width: 45,
+                child: CustomTextFieldWidget(
+                  textAlign: TextAlign.center,
+                  fontSize: 16,
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Is';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              SizedBox(
+                width: 45,
+                child: CustomTextFieldWidget(
+                  textAlign: TextAlign.center,
+                  fontSize: 16,
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Required';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
         const SizedBox(
           height: 10,
         ),
@@ -70,7 +165,16 @@ class CustomContainContainerInOTPWidget extends StatelessWidget {
           height: 10,
         ),
         CustomNavigationButtonWidget(
-          onTap: () {},
+          onTap: () {
+            if (formKey.currentState!.validate()) {
+              messageToUserHelper(
+                context: context,
+                text: 'Right OTP',
+              );
+            } else {
+              autovalidateMode = AutovalidateMode.always;
+            }
+          },
           height: 45,
           width: 130,
           colorToContainer: kDeepPurpleColor,

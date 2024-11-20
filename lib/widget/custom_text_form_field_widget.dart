@@ -9,17 +9,20 @@ class CustomTextFieldWidget extends StatelessWidget {
     this.suffixIcon,
     this.textAlign = TextAlign.start,
     this.onChanged,
-    this.fontSize = 18,
+    this.fontSize = 16,
+    required this.validator,
   });
   final String hintText;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final TextAlign textAlign;
   final void Function(String)? onChanged;
+  final String? Function(String?)? validator;
   final double fontSize;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: validator,
       textAlign: textAlign,
       onChanged: onChanged,
       style: TextStyle(

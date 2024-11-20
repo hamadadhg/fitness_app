@@ -7,29 +7,19 @@ class CustomRowInCornerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        right: 40,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Column(
-            children: [
-              CustomTextWidget(
-                text: 'your',
-                color: kWhiteColor,
-                fontSize: 35,
-              ),
-              CustomTextWidget(
-                text: 'LOGO',
-                color: kWhiteColor,
-                fontSize: 35,
-              ),
-            ],
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        CustomTextWidget(
+          text: 'your',
+          color: kWhiteColor,
+          fontSize: 35,
+        ),
+        CustomTextWidget(
+          text: 'LOGO',
+          color: kWhiteColor,
+          fontSize: 35,
+        ),
+      ],
     );
   }
 }

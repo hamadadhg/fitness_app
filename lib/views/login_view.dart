@@ -20,7 +20,7 @@ class LoginView extends StatelessWidget {
         body: Transform.translate(
           offset: const Offset(
             0,
-            -37,
+            -25,
           ),
           child: const CustomColumnContainLoginWidget(),
         ),

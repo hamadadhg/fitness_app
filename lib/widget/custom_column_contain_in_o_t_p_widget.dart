@@ -10,12 +10,22 @@ class CustomColumnContainInOTPWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        CustomRowInCornerWidget(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                right: 40,
+              ),
+              child: CustomRowInCornerWidget(),
+            ),
+          ],
+        ),
         CustomStackWidget(
-          horizontalOffset: -75,
+          horizontalOffset: -15,
           widget: CustomContainContainerInOTPWidget(),
-          heightToContainer: 300,
-          widthToContainer: 300,
+          heightToContainer: 335,
+          widthToContainer: 335,
         ),
       ],
     );

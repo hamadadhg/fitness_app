@@ -10,15 +10,25 @@ class CustomColumnContainForgetPasswordWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        CustomRowInCornerWidget(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                right: 40,
+              ),
+              child: CustomRowInCornerWidget(),
+            ),
+          ],
+        ),
         CustomStackWidget(
-          horizontalOffset: -75,
+          horizontalOffset: -15,
           widget: SizedBox(
-            width: 220,
+            width: 260,
             child: CustomContainContainerInForgetPasswordWidget(),
           ),
-          heightToContainer: 300,
-          widthToContainer: 300,
+          heightToContainer: 335,
+          widthToContainer: 335,
         ),
       ],
     );
