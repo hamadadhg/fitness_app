@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_app/views/forget_password_view.dart';
 import 'package:fitness_app/views/home_view.dart';
 import 'package:fitness_app/views/login_view.dart';
@@ -5,9 +6,13 @@ import 'package:fitness_app/views/o_t_p_view.dart';
 import 'package:fitness_app/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(
-      const FitnessApp(),
-    );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(
+    const FitnessApp(),
+  );
+}
 
 class FitnessApp extends StatelessWidget {
   const FitnessApp({super.key});
