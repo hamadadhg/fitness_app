@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_app/constant.dart';
 import 'package:fitness_app/helper/message_to_user_helper.dart';
 import 'package:fitness_app/views/forget_password_view.dart';
@@ -20,6 +21,7 @@ class _CustomContainContainerInLoginWidgetState
     extends State<CustomContainContainerInLoginWidget> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? email, password;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -37,6 +39,9 @@ class _CustomContainContainerInLoginWidgetState
           ),
           CustomTextFieldWidget(
             hintText: 'Email',
+            onChanged: (value) {
+              email = value;
+            },
             keyboardType: TextInputType.emailAddress,
             prefixIcon: Icons.email,
             validator: (value) {
@@ -50,6 +55,9 @@ class _CustomContainContainerInLoginWidgetState
           ),
           CustomTextFieldWidget(
             hintText: 'Password',
+            onChanged: (value) {
+              password = value;
+            },
             keyboardType: TextInputType.visiblePassword,
             prefixIcon: Icons.lock,
             suffixIcon: Icons.visibility,
@@ -81,15 +89,42 @@ class _CustomContainContainerInLoginWidgetState
             height: 25,
           ),
           CustomNavigationButtonWidget(
-            onTap: () {
+            onTap: () async {
               if (formKey.currentState!.validate()) {
-                messageToUserHelper(
-                  context: context,
-                  text: 'Successful Login',
-                );
-                Navigator.of(context).pushNamed(
-                  OTPView.otpViewId,
-                );
+                try {
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: email!,
+                    password: password!,
+                  );
+                  Navigator.of(context).pushNamed(
+                    OTPView.otpViewId,
+                  );
+                  messageToUserHelper(
+                    context: context,
+                    text: 'Successful Login',
+                  );
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'user-not-found') {
+                    messageToUserHelper(
+                      context: context,
+                      text: 'no account found for this email',
+                    );
+                  } else if (e.code == 'wrong-password') {
+                    messageToUserHelper(
+                      context: context,
+                      text: 'incorrect password please try again',
+                    );
+                  } else {
+                    messageToUserHelper(
+                      context: context,
+                      text: 'error occured please try again later',
+                    );
+                  }
+                } catch (e) {
+                  throw Exception(
+                    'There\'s An Error In Login ${e.toString()}',
+                  );
+                }
               } else {
                 setState(
                   () {

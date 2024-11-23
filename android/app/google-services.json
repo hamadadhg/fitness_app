@@ -12,7 +12,12 @@
           "package_name": "com.example.fitness_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "37735954962-3ini4nh2v0br76tcrabvkisd10ng317c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAe6Z7tn3bvW6be6xdRzE20iKsJq3NEfqM"
@@ -20,7 +25,63 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37735954962-3ini4nh2v0br76tcrabvkisd10ng317c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "37735954962-2fajl0m9j3h8db4a892qfitp1bresgoj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fitnessApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37735954962:android:8fefc24feea51175ab76cb",
+        "android_client_info": {
+          "package_name": "com.example.fitness_app_"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37735954962-jnr1aklaokki9l26087l2aa9sdv041t1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fitness_app_",
+            "certificate_hash": "117f341b28d42e5a7a21b2a1b87134d2fd056aee"
+          }
+        },
+        {
+          "client_id": "37735954962-3ini4nh2v0br76tcrabvkisd10ng317c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe6Z7tn3bvW6be6xdRzE20iKsJq3NEfqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37735954962-3ini4nh2v0br76tcrabvkisd10ng317c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "37735954962-2fajl0m9j3h8db4a892qfitp1bresgoj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fitnessApp"
+              }
+            }
+          ]
         }
       }
     }

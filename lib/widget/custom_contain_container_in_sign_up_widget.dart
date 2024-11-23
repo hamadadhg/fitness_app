@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_app/constant.dart';
 import 'package:fitness_app/helper/message_to_user_helper.dart';
 import 'package:fitness_app/views/o_t_p_view.dart';
@@ -18,6 +20,7 @@ class _CustomContainContainerInSignUpWidgetState
     extends State<CustomContainContainerInSignUpWidget> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? email, password;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -75,15 +78,44 @@ class _CustomContainContainerInSignUpWidgetState
             height: 21,
           ),
           CustomNavigationButtonWidget(
-            onTap: () {
+            onTap: () async {
               if (formKey.currentState!.validate()) {
-                messageToUserHelper(
-                  context: context,
-                  text: 'Successful Sign Up',
-                );
-                Navigator.of(context).pushNamed(
-                  OTPView.otpViewId,
-                );
+                try {
+                  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    email: email!,
+                    password: password!,
+                  );
+                  if (mounted) {
+                    Navigator.of(context).pushNamed(
+                      OTPView.otpViewId,
+                    );
+                  }
+                  messageToUserHelper(
+                    context: context,
+                    text: 'Successful Sign Up',
+                  );
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    messageToUserHelper(
+                      context: context,
+                      text: 'the password\'s weak or uncompletely',
+                    );
+                  } else if (e.code == 'email-already-in-use') {
+                    messageToUserHelper(
+                      context: context,
+                      text: 'the email\'s already exists',
+                    );
+                  } else {
+                    messageToUserHelper(
+                      context: context,
+                      text: 'error occured please try again later',
+                    );
+                  }
+                } catch (e) {
+                  throw Exception(
+                    'There\'s An Error In Sign Up ${e.toString()}',
+                  );
+                }
               } else {
                 setState(
                   () {
