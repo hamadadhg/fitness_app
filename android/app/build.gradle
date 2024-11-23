@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.fitness_app"
-        minSdk = 21 // Lowered for Firebase compatibility
+        minSdk = 23 // Lowered for Firebase compatibility
         targetSdk = 33
         versionCode = flutter.versionCode
         versionName = flutter.versionName

@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_app/constant.dart';
+import 'package:fitness_app/helper/message_to_user_helper.dart';
 import 'package:fitness_app/widget/custom_container_social_icon_widget.dart';
 import 'package:fitness_app/widget/custom_icon_widget.dart';
 import 'package:fitness_app/widget/custom_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class CustomLoginWithSocialAccountWidget extends StatelessWidget {
   const CustomLoginWithSocialAccountWidget({
@@ -18,6 +21,34 @@ class CustomLoginWithSocialAccountWidget extends StatelessWidget {
   final double thirdHeight;
   final double firstWidth;
   final double secondWidth;
+
+  Future<void> signInWithGoogle({required BuildContext context}) async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) {
+        return;
+      }
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+      await FirebaseAuth.instance.signInWithCredential(
+        credential,
+      );
+      messageToUserHelper(
+        context: context,
+        text: 'Google Sign In Successful',
+      );
+    } catch (e) {
+      messageToUserHelper(
+        context: context,
+        text: 'Google Sign In Failed ${e.toString()}',
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -57,7 +88,11 @@ class CustomLoginWithSocialAccountWidget extends StatelessWidget {
               width: 45,
               borderRadius: 24,
               widget: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  signInWithGoogle(
+                    context: context,
+                  );
+                },
                 child: Image.network(
                   'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png',
                 ),

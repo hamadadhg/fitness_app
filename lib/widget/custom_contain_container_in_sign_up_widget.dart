@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_app/constant.dart';
 import 'package:fitness_app/helper/message_to_user_helper.dart';
 import 'package:fitness_app/views/o_t_p_view.dart';
