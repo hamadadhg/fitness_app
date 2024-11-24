@@ -12,35 +12,38 @@ class CustomColumnContainLoginWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            CustomTextButtonWidget(
-              onPressed: () {
-                Navigator.of(context).pushNamed(
-                  SignUpView.signUpViewId,
-                );
-              },
-              fontSize: 17,
-              text: 'Or Sign Up',
-              color: kWhiteColor,
-            ),
-            const CustomRowInCornerWidget(),
-          ],
-        ),
-        const CustomStackWidget(
-          heightToContainer: 335,
-          widthToContainer: 335,
-          horizontalOffset: -15,
-          widget: SizedBox(
-            width: 260,
-            child: CustomContainContainerInLoginWidget(),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              CustomTextButtonWidget(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(
+                    SignUpView.signUpViewId,
+                  );
+                },
+                fontSize: 17,
+                text: 'Or Sign Up',
+                color: kWhiteColor,
+              ),
+              const CustomRowInCornerWidget(),
+            ],
           ),
-        ),
-        const CustomLoginWithSocialAccountWidget(),
-      ],
+          const CustomStackWidget(
+            heightToContainer: 335,
+            widthToContainer: 335,
+            horizontalOffset: -15,
+            verticalOffset: 15,
+            widget: SizedBox(
+              width: 260,
+              child: CustomContainContainerInLoginWidget(),
+            ),
+          ),
+          const CustomLoginWithSocialAccountWidget(),
+        ],
+      ),
     );
   }
 }

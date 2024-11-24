@@ -10,17 +10,15 @@ import 'package:google_sign_in/google_sign_in.dart';
 class CustomLoginWithSocialAccountWidget extends StatelessWidget {
   const CustomLoginWithSocialAccountWidget({
     super.key,
-    this.firstHeight = 130,
-    this.secondHeight = 25,
-    this.firstWidth = 50,
-    this.thirdHeight = 35,
-    this.secondWidth = 15,
+    this.firstHeight = 95,
+    this.secondHeight = 27,
+    this.thirdHeight = 20,
+    this.firstWidth = 15,
   });
   final double firstHeight;
   final double secondHeight;
   final double thirdHeight;
   final double firstWidth;
-  final double secondWidth;
 
   Future<void> signInWithGoogle({required BuildContext context}) async {
     try {
@@ -64,41 +62,36 @@ class CustomLoginWithSocialAccountWidget extends StatelessWidget {
         SizedBox(
           height: secondHeight,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomContainerSocialIconWidget(
-              height: 50,
-              width: 50,
-              borderRadius: 28,
-              widget: GestureDetector(
-                onTap: () {},
-                child: CustomIconWidget(
-                  iconData: Icons.facebook,
-                  color: kBlueColor,
-                  size: 50,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: firstWidth,
-            ),
-            CustomContainerSocialIconWidget(
-              height: 50,
-              width: 45,
-              borderRadius: 24,
-              widget: GestureDetector(
-                onTap: () {
-                  signInWithGoogle(
-                    context: context,
-                  );
-                },
-                child: Image.network(
+        GestureDetector(
+          onTap: () {
+            signInWithGoogle(
+              context: context,
+            );
+          },
+          child: CustomContainerSocialIconWidget(
+            height: 45,
+            width: 250,
+            borderRadius: 28,
+            widget: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.network(
                   'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png',
+                  height: 25,
+                  width: 30,
                 ),
-              ),
+                SizedBox(
+                  width: firstWidth,
+                ),
+                CustomTextWidget(
+                  text: 'Sign in with Google',
+                  color: kBlackColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ],
             ),
-          ],
+          ),
         ),
         SizedBox(
           height: thirdHeight,
@@ -118,7 +111,7 @@ class CustomLoginWithSocialAccountWidget extends StatelessWidget {
                   size: 30,
                 ),
                 SizedBox(
-                  width: secondWidth,
+                  width: firstWidth,
                 ),
                 CustomTextWidget(
                   text: 'Sign in with Apple',

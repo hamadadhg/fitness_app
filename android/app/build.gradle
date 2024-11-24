@@ -1,30 +1,29 @@
 plugins {
     id "com.android.application"
-    id 'com.google.gms.google-services' // Firebase plugin
+    id "com.google.gms.google-services" // Firebase plugin
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin" // Flutter plugin
 }
 
 android {
     namespace = "com.example.fitness_app"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    compileSdk = 34 // Updated to support Firebase requirements
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = "1.8"
     }
 
     defaultConfig {
         applicationId = "com.example.fitness_app"
-        minSdk = 23 // Lowered for Firebase compatibility
-        targetSdk = 33
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        minSdk = 23
+        targetSdk = 34 // Updated to match compileSdk
+        versionCode = 1
+        versionName = "1.0"
     }
 
     buildTypes {
@@ -32,13 +31,18 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            // Use a proper signing config for production
+            // Use proper signing config for production
             signingConfig signingConfigs.debug // Replace with release signing keys for production
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+dependencies {
+    
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 flutter {
