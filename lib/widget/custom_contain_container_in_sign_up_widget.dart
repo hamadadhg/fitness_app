@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_app/constant.dart';
+import 'package:fitness_app/cubits/access_phone_number_cubit/access_phone_number_cubit.dart';
 import 'package:fitness_app/helper/message_to_user_helper.dart';
 import 'package:fitness_app/views/o_t_p_view.dart';
 import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
@@ -20,7 +21,7 @@ class _CustomContainContainerInSignUpWidgetState
     extends State<CustomContainContainerInSignUpWidget> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String? email, password, phoneNumber;
+  String? email, password;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -54,11 +55,15 @@ class _CustomContainContainerInSignUpWidgetState
             keyboardType: TextInputType.phone,
             prefixIcon: Icons.phone,
             onChanged: (value) {
-              phoneNumber = value;
+              context.read<AccessPhoneNumberCubit>().addPhoneNumberMethod(
+                    phoneNumberInMethod: value,
+                  );
             },
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'This Field\'s Required';
+              } else if (!value.contains('+963')) {
+                return 'First You Must Add +963';
               }
               return null;
             },
