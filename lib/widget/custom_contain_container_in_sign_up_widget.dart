@@ -6,6 +6,7 @@ import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_form_field_widget.dart';
 import 'package:fitness_app/widget/custom_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomContainContainerInSignUpWidget extends StatefulWidget {
   const CustomContainContainerInSignUpWidget({super.key});
@@ -19,7 +20,7 @@ class _CustomContainContainerInSignUpWidgetState
     extends State<CustomContainContainerInSignUpWidget> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String? email, password;
+  String? email, password, phoneNumber;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -52,6 +53,9 @@ class _CustomContainContainerInSignUpWidgetState
             hintText: 'Phone',
             keyboardType: TextInputType.phone,
             prefixIcon: Icons.phone,
+            onChanged: (value) {
+              phoneNumber = value;
+            },
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'This Field\'s Required';
