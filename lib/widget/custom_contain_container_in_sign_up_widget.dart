@@ -41,6 +41,9 @@ class _CustomContainContainerInSignUpWidgetState
             hintText: 'Email',
             keyboardType: TextInputType.emailAddress,
             prefixIcon: Icons.email,
+            onChanged: (value) {
+              email = value;
+            },
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'This Field\'s Required';
@@ -62,8 +65,6 @@ class _CustomContainContainerInSignUpWidgetState
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'This Field\'s Required';
-              } else if (!value.contains('+963')) {
-                return 'First You Must Add +963';
               }
               return null;
             },
@@ -73,6 +74,9 @@ class _CustomContainContainerInSignUpWidgetState
             keyboardType: TextInputType.visiblePassword,
             prefixIcon: Icons.lock,
             suffixIcon: Icons.visibility,
+            onChanged: (value) {
+              password = value;
+            },
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'This Field\'s Required';
@@ -93,11 +97,9 @@ class _CustomContainContainerInSignUpWidgetState
                     email: email!,
                     password: password!,
                   );
-                  if (mounted) {
-                    Navigator.of(context).pushNamed(
-                      OTPView.otpViewId,
-                    );
-                  }
+                  Navigator.of(context).pushNamed(
+                    OTPView.otpViewId,
+                  );
                   messageToUserHelper(
                     context: context,
                     text: 'Successful Sign Up',

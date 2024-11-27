@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_app/constant.dart';
 import 'package:fitness_app/helper/message_to_user_helper.dart';
 import 'package:fitness_app/views/forget_password_view.dart';
-import 'package:fitness_app/views/o_t_p_view.dart';
+import 'package:fitness_app/views/steps_view.dart';
 import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_form_field_widget.dart';
@@ -97,7 +97,7 @@ class _CustomContainContainerInLoginWidgetState
                     password: password!,
                   );
                   Navigator.of(context).pushNamed(
-                    OTPView.otpViewId,
+                    StepsView.stepsViewId,
                   );
                   messageToUserHelper(
                     context: context,

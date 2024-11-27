@@ -31,8 +31,7 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            // Use proper signing config for production
-            signingConfig signingConfigs.debug // Replace with release signing keys for production
+            signingConfig signingConfigs.debug // Replace with your release signing key
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -41,10 +40,15 @@ android {
 }
 
 dependencies {
-    
+    implementation platform('com.google.firebase:firebase-bom:33.0.0') // Firebase BOM
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth-ktx' // Firebase Auth
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 flutter {
     source = "../.."
 }
+
+// Ensure this is at the very end of the file
+apply plugin: 'com.google.gms.google-services'

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_app/constant.dart';
 import 'package:fitness_app/helper/message_to_user_helper.dart';
+import 'package:fitness_app/views/steps_view.dart';
 import 'package:fitness_app/widget/custom_container_social_icon_widget.dart';
 import 'package:fitness_app/widget/custom_icon_widget.dart';
 import 'package:fitness_app/widget/custom_text_widget.dart';
@@ -66,6 +67,9 @@ class CustomLoginWithSocialAccountWidget extends StatelessWidget {
           onTap: () {
             signInWithGoogle(
               context: context,
+            );
+            Navigator.of(context).pushNamed(
+              StepsView.stepsViewId,
             );
           },
           child: CustomContainerSocialIconWidget(

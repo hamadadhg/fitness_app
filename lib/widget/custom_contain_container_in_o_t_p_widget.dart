@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_app/constant.dart';
 import 'package:fitness_app/cubits/access_phone_number_cubit/access_phone_number_cubit.dart';
+import 'package:fitness_app/helper/build_o_t_p_text_field_helper.dart';
 import 'package:fitness_app/helper/message_to_user_helper.dart';
 import 'package:fitness_app/views/steps_view.dart';
 import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
@@ -22,11 +23,22 @@ class _CustomContainContainerInOTPWidgetState
     extends State<CustomContainContainerInOTPWidget> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String? verificationId, smsCode, phoneNumber, digit1, digit2, digit3, digit4;
+  String? verificationId, phoneNumber, digit1, digit2, digit3, digit4;
+  String smsCode = 'xxxxxx';
+
+  String formatPhoneNumber({required String phoneNumber}) {
+    if (!phoneNumber.startsWith('+')) {
+      return '+963${phoneNumber.replaceFirst(RegExp(r'^0+'), '')}';
+    }
+    return phoneNumber;
+  }
 
   Future<void> sendOTP({required String phoneNumber}) async {
-    await FirebaseAuth.instance.verifyPhoneNumber(
+    String formattedPhoneNumber = formatPhoneNumber(
       phoneNumber: phoneNumber,
+    );
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: formattedPhoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) async {
         await FirebaseAuth.instance.signInWithCredential(
           credential,
@@ -37,10 +49,17 @@ class _CustomContainContainerInOTPWidgetState
         );
       },
       verificationFailed: (FirebaseAuthException error) {
-        messageToUserHelper(
-          context: context,
-          text: 'Phone Verified Failed ${error.toString()}',
-        );
+        if (error.code == 'invalid-phone-number') {
+          messageToUserHelper(
+            context: context,
+            text: 'Provided Number Isn\'t Valid',
+          );
+        } else {
+          messageToUserHelper(
+            context: context,
+            text: 'Phone Verified Failed ${error.toString()}',
+          );
+        }
       },
       codeSent: (String verId, int? resendToken) {
         setState(
@@ -53,6 +72,9 @@ class _CustomContainContainerInOTPWidgetState
           text: 'OTP Sent To $phoneNumber',
         );
       },
+      timeout: const Duration(
+        minutes: 1,
+      ),
       codeAutoRetrievalTimeout: (String verId) {
         setState(
           () {
@@ -71,7 +93,7 @@ class _CustomContainContainerInOTPWidgetState
     try {
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
         verificationId: verificationId!,
-        smsCode: smsCode!,
+        smsCode: smsCode,
       );
       await FirebaseAuth.instance.signInWithCredential(
         credential,
@@ -93,8 +115,10 @@ class _CustomContainContainerInOTPWidgetState
 
   @override
   void initState() {
-    phoneNumber =
-        BlocProvider.of<AccessPhoneNumberCubit>(context).phoneNumberInCubit;
+    phoneNumber = formatPhoneNumber(
+      phoneNumber:
+          BlocProvider.of<AccessPhoneNumberCubit>(context).phoneNumberInCubit!,
+    );
     super.initState();
   }
 
@@ -130,7 +154,7 @@ class _CustomContainContainerInOTPWidgetState
               fontSize: 16,
             ),
             CustomTextWidget(
-              text: ' 0949 371 163',
+              text: ' $phoneNumber',
               color: kBlackColor,
               fontSize: 16,
             ),
@@ -141,106 +165,34 @@ class _CustomContainContainerInOTPWidgetState
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
-                width: 45,
-                child: CustomTextFieldWidget(
-                  keyboardType: TextInputType.phone,
-                  textAlign: TextAlign.center,
-                  fontSize: 16,
-                  onChanged: (value) {
-                    if (value.isNotEmpty &&
-                        RegExp(r'^[0-9]$').hasMatch(value)) {
-                      digit1 = value;
-                      FocusScope.of(context).nextFocus();
-                    } else if (value.isEmpty) {
-                      FocusScope.of(context).previousFocus();
-                    }
-                  },
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'This';
-                    }
-                    return null;
-                  },
-                ),
+              buildOTPTextFieldHelper(
+                onChanged: (value) => digit1 = value,
+                textError: 'This',
+                context: context,
               ),
               const SizedBox(
                 width: 8,
               ),
-              SizedBox(
-                width: 45,
-                child: CustomTextFieldWidget(
-                  keyboardType: TextInputType.phone,
-                  textAlign: TextAlign.center,
-                  fontSize: 16,
-                  onChanged: (value) {
-                    if (value.isNotEmpty &&
-                        RegExp(r'^[0-9$]').hasMatch(value)) {
-                      digit2 = value;
-                      FocusScope.of(context).nextFocus();
-                    } else if (value.isEmpty) {
-                      FocusScope.of(context).previousFocus();
-                    }
-                  },
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Field';
-                    }
-                    return null;
-                  },
-                ),
+              buildOTPTextFieldHelper(
+                onChanged: (value) => digit2 = value,
+                textError: 'Field',
+                context: context,
               ),
               const SizedBox(
                 width: 8,
               ),
-              SizedBox(
-                width: 45,
-                child: CustomTextFieldWidget(
-                  keyboardType: TextInputType.phone,
-                  textAlign: TextAlign.center,
-                  fontSize: 16,
-                  onChanged: (value) {
-                    if (value.isNotEmpty &&
-                        RegExp(r'^[0-9]$').hasMatch(value)) {
-                      digit3 = value;
-                      FocusScope.of(context).nextFocus();
-                    } else if (value.isEmpty) {
-                      FocusScope.of(context).previousFocus();
-                    }
-                  },
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Is';
-                    }
-                    return null;
-                  },
-                ),
+              buildOTPTextFieldHelper(
+                onChanged: (value) => digit3 = value,
+                textError: 'Is',
+                context: context,
               ),
               const SizedBox(
                 width: 8,
               ),
-              SizedBox(
-                width: 45,
-                child: CustomTextFieldWidget(
-                  keyboardType: TextInputType.phone,
-                  textAlign: TextAlign.center,
-                  fontSize: 16,
-                  onChanged: (value) {
-                    if (value.isNotEmpty &&
-                        RegExp(r'^[0-9]$').hasMatch(value)) {
-                      digit4 = value;
-                      FocusScope.of(context).nextFocus();
-                    } else if (value.isEmpty) {
-                      FocusScope.of(context).previousFocus();
-                    }
-                  },
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Required';
-                    }
-                    return null;
-                  },
-                ),
+              buildOTPTextFieldHelper(
+                onChanged: (value) => digit4 = value,
+                textError: 'Required',
+                context: context,
               ),
             ],
           ),

@@ -1,6 +1,6 @@
 import 'package:fitness_app/constant.dart';
 import 'package:fitness_app/helper/message_to_user_helper.dart';
-import 'package:fitness_app/views/o_t_p_view.dart';
+import 'package:fitness_app/views/steps_view.dart';
 import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_form_field_widget.dart';
 import 'package:fitness_app/widget/custom_text_widget.dart';
@@ -85,7 +85,7 @@ class _CustomContainContainerInForgetPasswordWidgetState
                   text: 'Successful Edit',
                 );
                 Navigator.of(context).pushNamed(
-                  OTPView.otpViewId,
+                  StepsView.stepsViewId,
                 );
               } else {
                 setState(
