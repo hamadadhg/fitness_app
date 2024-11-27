@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_app/cubits/access_phone_number_cubit/access_phone_number_cubit.dart';
 import 'package:fitness_app/views/forget_password_view.dart';
@@ -12,6 +13,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await FirebaseAuth.instance.setSettings(
+    appVerificationDisabledForTesting: true,
+  );
   runApp(
     const FitnessApp(),
   );

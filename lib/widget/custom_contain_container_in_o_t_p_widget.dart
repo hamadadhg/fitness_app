@@ -6,7 +6,6 @@ import 'package:fitness_app/helper/message_to_user_helper.dart';
 import 'package:fitness_app/views/steps_view.dart';
 import 'package:fitness_app/widget/custom_navigation_button_widget.dart';
 import 'package:fitness_app/widget/custom_text_button_widget.dart';
-import 'package:fitness_app/widget/custom_text_form_field_widget.dart';
 import 'package:fitness_app/widget/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
